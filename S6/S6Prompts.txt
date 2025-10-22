@@ -1,0 +1,18 @@
+Primer propt usado para la ia:
+usando diccionarios, crea un pequeño programa en python con estas caracteristicas: • Insertar, modificar y eliminar registros. • Calcular al menos una métrica (media, suma, máximos...). • Usar un bucle for para recorrer las claves y valores. • Realizar una adaptación personalizada Teniendo en cuenta que somos un gimnasio. No quiero que uses funciones externas ni nada por el estilo
+
+El resultado a este propt es muy facil de entender, lo unico complicado es comprender las bibliotecas anidadas, lo cual con el siguiente prompt lo entenderemos
+
+Prompt: explicame como funcionan las bibliotecas anidadas (usadas en este ejercicio)
+con este propmt nos facilita la comprensión del uso de las bibliotecas del ejercicio haciendonos muy sencillo entender las funciones solicitadas
+
+Con este prompt comprendo el uso del for con .item() de esta parte:
+Explicame esto: for member_id, datos in members.items(): # Ejemplo de uso del bucle for para claves y valores print(f"- {member_id}: Nombre={datos['nombre']}, Edad={datos['edad']}, Cuota={datos['cuota']}€, Ses/sem={datos['sesiones_sem']}")
+
+Al no entender el uso de max_sesiones (acción 5) le preguntamos a la ia:
+Las maximas sesiones del apartado 5 para que sirven?
+
+No me gusta su funcionamiento (no lo entiendo) y le pido que en vez de eso me muestre el cliente con mas sesiones por semana en el gimnasio
+En vez de eso, muestra por pantalla el cliente que tenga mas sesiones semanales
+
+Nos corrige el codigo y entiendo el funcionamiento

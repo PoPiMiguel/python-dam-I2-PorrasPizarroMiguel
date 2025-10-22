@@ -13,6 +13,7 @@ members = {
     "M003": {"nombre": "Carmen","edad": 55, "cuota": 30.0, "sesiones_sem": 1},
 }
 
+#Esta función es necesaria ya que se usa varias veces y no es buena idea repetir codigo
 def mostrar_miembro(id_):
     if id_ in members:
         m = members[id_]
@@ -90,29 +91,40 @@ while True:
                 print(f"- {member_id}: Nombre={datos['nombre']}, Edad={datos['edad']}, Cuota={datos['cuota']}€, Ses/sem={datos['sesiones_sem']}")
 
     elif opcion == "5":
-        # Calcular métricas: media de cuota, suma, máximo de sesiones
+    # Calcular métricas: media de cuota, suma de cuotas, total de sesiones
+    # y mostrar el cliente con más sesiones semanales
         if not members:
             print("No hay datos para calcular métricas.")
         else:
             total_cuota = 0.0
-            max_sesiones = None
             suma_sesiones = 0
             count = 0
-            # Recorremos para acumular
+            max_sesiones = None  # Guardará (id, datos) del socio más activo
+
             for _id, d in members.items():
                 total_cuota += d['cuota']
                 suma_sesiones += d['sesiones_sem']
                 count += 1
-                if (max_sesiones is None) or (d['sesiones_sem'] > max_sesiones[1]):
-                    # guardamos tupla (id, sesiones) para saber quién tiene el máximo
-                    max_sesiones = (_id, d['sesiones_sem'])
+
+                if (max_sesiones is None) or (d['sesiones_sem'] > max_sesiones[1]['sesiones_sem']):
+                    max_sesiones = (_id, d)
+
             media_cuota = total_cuota / count
             print(f"Nº socios: {count}")
             print(f"Suma cuotas mensuales: {total_cuota:.2f} €")
             print(f"Media cuota mensual: {media_cuota:.2f} €")
             print(f"Suma de sesiones/semana (todos): {suma_sesiones}")
+
+            # Mostrar socio más activo (con más sesiones)
             if max_sesiones:
-                print(f"Máx sesiones/semana: {max_sesiones[1]} (socio {max_sesiones[0]})")
+                id_max, datos_max = max_sesiones
+                print("\n🏋️ Socio con más sesiones semanales:")
+                print(f"ID: {id_max}")
+                print(f"Nombre: {datos_max['nombre']}")
+                print(f"Edad: {datos_max['edad']}")
+                print(f"Cuota: {datos_max['cuota']} €")
+                print(f"Sesiones por semana: {datos_max['sesiones_sem']}")
+
 
     elif opcion == "6":
         # Adaptación personalizada: sugerir plan según edad y sesiones por semana
@@ -125,12 +137,12 @@ while True:
                 edad = datos['edad']
                 sesiones = datos['sesiones_sem']
                 # lógica de ejemplo (personalizable):
-                if edad >= 60:
+                if edad >= 50:
                     if sesiones <= 1:
                         plan = "Mantenimiento suave: 2 sesiones de movilidad + 1 sesión supervisada."
                     else:
                         plan = "Entrenamiento enfocado en fuerza ligera y equilibrio."
-                elif edad >= 40:
+                elif edad >= 30:
                     if sesiones <= 2:
                         plan = "Plan equilibrado: 2 cardio + 2 fuerza moderada."
                     else:
@@ -139,7 +151,7 @@ while True:
                     # menores de 40
                     if sesiones >= 4:
                         plan = "Plan intenso: combinar fuerza, HIIT y técnica."
-                    elif sesiones >= 2:
+                    elif sesiones >= 3:
                         plan = "Plan estándar: 2 fuerza + 1 cardio + 1 recuperación activa."
                     else:
                         plan = "Iniciar con 2 sesiones semanales y progresar gradualmente."
