@@ -1,0 +1,21 @@
+1- Realiza el siguiente ejercicio en Python: 
+Anidadas.py: Crea una estructura que contenga varios registros. Cada
+registro debe ser un diccionario con al menos tres campos que conforme
+una situación práctica en vuestra cotidianeidad. Implementa funciones
+para: añadir registros, buscar un registro por un campo, calcular una
+
+2- Ahora ayudame a corregir el siguiente codigo e indicandome los errores tambien dame posibles opciones para reparar el codigo
+def programa():
+alumnos = []
+n = input("cuantos alumnos?")
+for i in range(0, int(n)):
+nota = int(input("nota:"))
+alumnos.append(nota)
+media = sum(alumnos)/len(alumnos)
+print("media", media)
+print("aprobados:")
+for i in alumnos:
+if i>=5:
+print(i)
+
+(He elegido la opción mas simple y funcional para este programa)

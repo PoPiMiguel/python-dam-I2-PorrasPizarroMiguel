@@ -1,0 +1,17 @@
+Promopt para auxprecios.py
+crea un pequeñomódulo en Python para analizar una lista de precios, el módulo debe
+utilizar unas funciones útiles para trabajar con esa lista, sin repetir
+cálculos.
+
+Promt para precios.py
+Crea un pequeño programa para llamar al modulo anterior y ponerlo en práctica
+
+Prompt para auxprecioserror.py
+Teniendo en cuenta el modulo anterior (auxprecios.py) modifícalo para que sean más robusto usando try, except, else, finally y raise.
+
+Propt para precioserror.py
+Elabora dos casos de prueba donde de produzcan errores y el programa
+no se rompa (Llamalo precioserror.py)
+
+Prompt para generar y explicar el modulo matplotlib
+Genera y explicame una funcion basica con el modulo matplotlib
